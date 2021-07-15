@@ -1,4 +1,4 @@
-#BAKALÁŘSKÁ PRÁCE / BACHELOR THESIS 2021
+# BAKALÁŘSKÁ PRÁCE / BACHELOR THESIS 2021
 
 **Czech University of Life Scences Prague**  
 Česká zemědělská universita v Praze  
