@@ -1,0 +1,190 @@
+@import "../variables.sass"
+.accessible-hide
+  border: 0
+  clip: rect(1px 1px 1px 1px) /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px)
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px
+
+
+.standard-padding
+  padding: $std
+
+#homepage, #recepce, #domovska-stranka
+  .homepage__wrapper
+    width: 100%
+    display: flex
+    flex-direction: row
+    .homepage__title
+      text-align: left
+      margin-bottom: $std/2
+      width: 100%
+      font-weight: bold
+      //&.homepage__title--left
+      //&.homepage__title--right
+    .homepage__left
+      flex-grow: 1
+      flex-basis: 75%
+      .card
+        display: flex
+        flex-direction: column
+        box-shadow: $box-shadow-article
+        margin-bottom: $std/2
+        align-items: center
+        padding: $std
+        //&:nth-of-type(5n+4), &:nth-of-type(5n) //4th and 5th
+        //&:nth-of-type(5n) //5th
+        //&:nth-of-type(5n+1) //1st
+        //&:nth-of-type(5n+3) //3rd
+        &:last-of-type
+          margin-bottom: 0
+        .card__image
+          margin-bottom: $std/2
+          width: 192px
+          height: 96px
+        .card__title
+          text-align: left
+          font-weight: bold
+          margin-bottom: $std/2
+          width: 100%
+        .card__digest
+          text-align: left
+          font-size: 0.75em
+          //.filler
+        &__horizontal-rule
+          width: 100%
+          border: none
+          border-bottom: 0.5px solid lightgrey
+          flex-grow: 1
+        .card__time-meta
+          color: lightgrey
+          width: 100%
+          font-size: 0.75em
+          display: flex
+          flex-direction: row
+          justify-content: space-between
+          //.card__timestamp
+            //.card__time
+    .homepage__right
+      margin-left: $std/2
+      width: 35%
+      .homepage__pannel
+        position: sticky
+        top: $std/2
+        &.homepage__pannel--featured
+          .card
+            box-shadow: none
+            .card__title
+              font-weight: bold
+              font-size: 0.75em
+              margin-bottom: $std/4
+              text-align: center
+            .card__digest
+              font-size: 0.75em
+              text-align: center
+        &.homepage__pannel--call-to-action
+          display: flex
+          flex-direction: column
+          border-radius: $std
+          background-color: $primary-color
+          .share__link
+            display: flex
+            flex-direction: row
+            box-shadow: $box-shadow
+            border-radius: $std
+            margin-bottom: $std/2
+            padding: $std/4
+            align-items: center
+            &:last-of-type
+              margin-bottom: 0
+          .share__logo
+            max-width: $std/1.5
+            max-height: $std/1.5
+          .share__text
+            flex-grow: 1
+            font-size: 0.75em
+            text-align: center
+            color: white
+          #twitter-share
+            background-color: #1da1f2
+          #facebook-share
+            background-color: #1877f2
+          #reddit-share
+            background-color: #ff5700
+          #mail-share
+            background-color: #252525
+        //&.homepage__pannel--statistics
+          //.homepage__stat
+            //&:last-of-type
+  
+@media only screen and (min-width: 1025px)
+  #homepage, #recepce, #domovska-stranka
+    .homepage__wrapper
+      //.homepage__title
+        //&.homepage__title--left
+        //&.homepage__title--right
+      .homepage__left
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        .card
+          flex-grow: 1
+          display: inline-flex
+          flex-basis: 25%
+          margin-bottom: $std/2
+          &:nth-of-type(5n+4), &:nth-of-type(5n) //4th and 5th
+            flex-basis: 40%
+          &:nth-of-type(5n) //5th
+            margin-left: $std/2
+          &:nth-of-type(5n+1) //1st
+            margin-right: $std/2
+          &:nth-of-type(5n+3) //3rd
+            margin-left: $std/2
+      .homepage__right
+        margin-left: $std
+        .homepage__pannel
+          top: $std*2.5
+        .homepage__pannel--call-to-action
+          top: $std/2
+        #social-media-sharing
+          flex-direction: row
+        .share__link
+          margin: auto
+          width: 25%
+          border-radius: 0 !important
+          margin-bottom: 0 !important
+          &:first-of-type
+            border-bottom-left-radius: $std !important
+            border-top-left-radius: $std !important
+          &:last-of-type
+            border-bottom-right-radius: $std !important
+            border-top-right-radius: $std !important
+        .card
+          padding: $std
+          margin-bottom: $std/2
+          .card__title, .card__digest
+            font-size: 1em !important
+          .card__title
+            text-align: left !important
+            margin-bottom: $std !important
+          .card__digest
+            text-align: justify !important
+          .card__featured-separator
+            display: none
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2), 0 3px 10px 0 rgba(0, 0, 0, .19) !important
+          transition: all 0.25s ease-out
+          &:hover
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4), 0 3px 10px 0 rgba(0, 0, 0, .38) !important
+            .time-meta
+              border-color: darkgray !important
+              color: darkgray !important
+              *
+                color: darkgray !important
+          &:active
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .4), 0 6px 20px 0 rgba(0, 0, 0, .38) !important
+          &--no-click-effect:active, &--nce:active //no-click-effect
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4), 0 3px 10px 0 rgba(0, 0, 0, .38) !important

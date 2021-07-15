@@ -1,0 +1,42 @@
+<!--suppress HtmlUnknownTarget -->
+<nav class="breadcrumbs">
+    <a class="breadcrumbs__breadcrumb" href="/{$langCode}">{$langCode|substr:0:2}</a> ›
+    <a class="breadcrumbs__breadcrumb" href="/{$langCode}/{$localizationData['archive']}">{$localizationData['archive']}</a> ›
+    {foreach $breadcrumbs as $breadcrumb}
+    <a class="breadcrumbs__breadcrumb" href="{$breadcrumb[0]}">{$breadcrumb[1]}</a> ›
+    {/foreach}
+    <a class="breadcrumbs__breadcrumb" href="{$_SERVER['REQUEST_URI']}"><h1>{$topic->title ? $topic->title: 'Root'}</h1></a> ›
+</nav>
+
+
+<div n:if="$topic->description" class="archive__description">{$topic->description}</div>
+
+<section class="archive__section">
+    <h2 class="accessible-hide">{$localizationData['topics']}</h2>
+    <div n:foreach="$subcategories as $section" class="topic sb sp sp--half">
+        <div class="topic__top">
+            <div class="topic__name sm sm--quarter">{$section->title}</div>
+            <div n:if="$section->preview" class="topic__preview" title="{$section->preview['title']}">
+                <img class="topic__image sm sm--quarter i i--half" src="/src/View/image/{$section->preview['src']}" alt="{$section->preview['name']}" />
+                <a href="/{$langCode}/{$localizationData['article']}/{$section->preview['link']}" class="overlay"></a>
+            </div>
+        </div>
+        <div class="topic__bottom">
+            <div n:if="$section->countSubs !== '0'" class="topic__subsection-count sm sm--quarter">{($langId === 1 ? 'Subsections: ' : 'Podsekcí: ') . $section->countSubs}</div>
+            <div n:if="$section->countArticles !== '0'" class="topic__article-count sm sm--quarter">{($langId === 1 ? 'Articles: ' : 'Článků: ') . $section->countArticles}</div>
+        </div>
+        <a href="/{$langCode}/{$localizationData['archive']}/{$section->link}" class="overlay"></a>
+    </div>
+</section>
+
+<section class="archive__section">
+    <h2 class="accessible-hide">{$localizationData['articles']}</h2>
+    <figure n:foreach="$articles as $article" class="card sb sp">
+            <img class="card__image" src="/src/View/image/{$article->src}" alt="{$article->name}" />
+            <figcaption>
+                <h2 class="card__title">{$article->title}</h2>
+                <div class="card__digest taj">{$article->digest}</div>
+            </figcaption>
+            <a class="overlay" href="/{$langCode}/{$localizationData['article']}/{$article->link}"></a>
+        </figure>
+</section>

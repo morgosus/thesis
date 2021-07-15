@@ -1,0 +1,17 @@
+@import "../variables.sass"
+
+.sb //standard-border
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2), 0 3px 10px 0 rgba(0, 0, 0, .19)
+  border-radius: $standard-border-radius !important
+  transition: all 0.25s ease-out
+  &:hover
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4), 0 3px 10px 0 rgba(0, 0, 0, .38) !important
+    .time-meta
+      border-color: darkgray !important
+      color: darkgray !important
+      *
+        color: darkgray !important
+  &:active
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .4), 0 6px 20px 0 rgba(0, 0, 0, .38) !important
+  &--no-click-effect:active, &--nce:active //no-click-effect
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4), 0 3px 10px 0 rgba(0, 0, 0, .38) !important

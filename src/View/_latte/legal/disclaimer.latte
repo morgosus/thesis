@@ -1,0 +1,43 @@
+<!--suppress HtmlUnknownTarget -->
+<nav class="breadcrumbs">
+    <a class="breadcrumbs__breadcrumb" href="/{$langCode}">{$langCode|substr:0:2}</a> ›
+                                                                                      {if $langId === 2}
+    <a class="breadcrumbs__breadcrumb" href="{$_SERVER['REQUEST_URI']}"><h1>Legal › Vyloučení odpovědnosti</h1></a> ›
+                                                                                      {else}
+    <a class="breadcrumbs__breadcrumb" href="{$_SERVER['REQUEST_URI']}"><h1>Legal › Disclaimer</h1></a> ›
+                                                                                      {/if}
+</nav>
+<div>
+    {if $langId === 2}
+    <p>Laicky řečeno: Pokud najdete šílenství vzbuzující podivný symbol a začnete jej šťouchat tyčkou, nechtějte po nás,
+       abychom z Vás vymítali démona.</p>
+    <p>
+        Snažíme se co nejlépe připravovat obsah tohoto webu. Toms.click i přesto nemůže zaručit vliv ani subjektivní
+        výklad tohoto obsahu, stejně tak nemůžeme zaručit jeho přesnost a správnost. V rámci zákona nebudeme odpovědní
+        za žádné ztráty nebo škody zbůsobené používáním obsahu této těchto stránek, nebo internetem obecně.
+    </p>
+    
+    <p>Linky na tomto webu mohou vést na externí stránky, jsou zde jen pro pohodlí. Data, informace a
+       prohlášení na těchto externích stránkách nejsou spozorovány či schváleny námi a nevyjadřují vždy naše
+       názory. Nejsme odpovědní za jejich dostupnost nebo obsah, ani za ztráty nebo škody při jejich použití.
+    </p>
+    {else}
+    <p>In layman's terms: If you find a madness inducing cursed Eldritch sigil and poke it with a stick, don't ask us to
+       exorcise a demon out of
+       you.</p>
+    <p>
+        We are doing our best to prepare the content of this site. However, Toms.click
+        can not warranty the expressions and suggestions of the contents, as well as its accuracy. In addition, to
+        the extent permitted by the law, Toms.click shall not be responsible for any losses and/or damages due to the
+        usage of the information on our website.
+    </p>
+    <p> The links contained on our website may lead
+        to external sites, which are provided for convenience only. Any information or statements that appeared in
+        these
+        sites are not sponsored, endorsed, or otherwise approved by Toms.click. For these external sites, Toms.click
+        cannot be held liable for the availability of, or the content located on or through it. Plus, any losses or
+        damages
+        occurred from using these contents or the internet generally.
+    </p>
+    {/if}
+</div>

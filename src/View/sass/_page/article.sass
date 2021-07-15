@@ -1,0 +1,259 @@
+@import "../variables.sass"
+
+//192x96 + 384x192 + 576x288
+
+.article
+  .markdown
+    &__paragraph
+      text-align: justify
+      margin-top: 0
+      margin-bottom: $std
+      line-height: 150%
+      font-size: 1em
+    &__h1,&__h2,&__h3,&__h4,&__h5,&__h6
+      font-weight: bold
+      margin-bottom: 0
+      font-size: 1em
+    &__h1
+      font-size: 1.15em
+    &__h2
+      font-size: 1.1em
+    &__h3
+      font-size: 1.05em
+    &__h4
+    &__h5
+    &__h6
+    &__img
+  
+  &__breadcrumbs-separator
+    clear: both
+    margin: 0
+    visibility: hidden
+  &__headline
+    font-weight: bold
+    font-size: 1.15em
+    text-align: center
+    width: 100%
+    margin-bottom: $std
+  &__publish-time
+    display: block
+    text-align: center
+    color: gray
+  &__audio
+
+  &__content
+  
+  &__meta
+    display: none
+
+.article__bottom-links
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  border: $stdb
+  border-radius: $std/3
+  padding: $std/2
+  .card
+    margin: auto
+    margin-top: $std/2
+    flex-basis: 50%
+    text-align: center
+    flex-grow: 0.5
+    padding: $std/2
+    max-width: 100%
+    &--previous
+      margin-left: 0
+    &--next
+      margin-right: 0
+    &__symbol
+      top: 20%
+      height: 60%
+      bottom: 20%
+      background-color: $stdbc
+      font-size: 1.5em
+      position: absolute
+      line-height: $std
+      width: $std/1.5
+      color: transparent
+      &--left
+        clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%)
+        left: 0
+      &--right
+        clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%)
+        right: 0
+    &:hover
+      .card__symbol
+        background-color: $safety-green
+    &__image
+      width: $imgw
+      height: $imgh
+      min-width: $imgw
+      min-height: $imgh
+    &__caption
+      font-weight: bold
+      font-size: 1em
+    &__overlay
+    
+.related
+  display: flex
+  border: $stdb
+  flex-direction: column
+  margin-bottom: $std
+  .article__teaser-image
+    max-width: $imgw
+    max-height: $imgh
+    width: 100%
+    align-self: center
+    margin: $std/2
+  &__separator
+    width: 100%
+    border: none
+    border-bottom: $stdb
+    margin: 0
+  &__details
+    padding: $std/2
+    text-align: center
+  &__summary
+    outline: none
+    cursor: pointer
+    padding: $std/4
+  &__about
+    width: 50%
+    text-align: justify
+    margin: auto
+    margin-bottom: $std
+    margin-top: $std
+  &__reading-time
+  &__author
+    margin-bottom: $std
+  &__word-count
+    margin-bottom: $std
+  &__date
+  
+  .card
+    border: $stdb
+    margin: auto
+    margin-bottom: $std
+    width: 50%
+    min-width: $imgw+2px+$std/2
+    padding: $std/4
+    &__image
+      width: $imgw
+      height: $imgh
+    &__caption
+    &__overlay
+
+
+.share
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: space-evenly
+  border: $stdb
+  border-radius: $std/3
+  &__link
+    background-color: $stdbc
+    display: flex
+    flex-direction: row
+    border-radius: $std !important
+    height: $std*2
+    flex-basis: 180px
+    max-width: 180px
+    max-height: $std*2
+    align-items: center
+    padding: $std/4
+    padding-left: $std
+    margin-top: $std
+    color: white
+    &:last-of-type
+      margin-bottom: $std
+    .share__logo
+      height: $std
+      width: $std
+      background-color: white
+      border-radius: $std
+    .share__text
+      line-height: $std/2
+      font-size: 1em
+      flex-grow: 1
+      text-align: center
+    &--facebook
+      background-color: #1877f2
+      .share__logo
+        background-color: inherit
+    &--twitter
+      background-color: #1da1f2
+    &--reddit
+      background-color: #ff5700
+    &--mail
+      background-color: #252525
+
+
+      
+.article
+  table, .transport-table
+    width: 100%
+    border-collapse: collapse
+    table-layout: fixed
+    margin: 2.5vh auto
+    font-size: 75%
+    tbody
+      tr
+        &:last-child
+          td
+            border: none
+        td
+          padding: $std/4
+          border: $text-color solid 1px
+          &:last-child
+            border: none
+          &:first-child
+            font-weight: bold
+            border: none
+          div
+            position: relative
+          sup
+            color: indigo
+            position: absolute
+            top: .5em
+            right: .25em
+            &.left-sup
+              color: darkred
+              position: absolute
+              top: 0.5em
+              right: 90%
+
+
+@media only screen and (min-width: $imgw*2+2px+$std)
+  .related
+    float: left
+    clear: left
+    max-width: $imgw*2+2px
+    width: 100%
+    margin-right: $std
+    .article__teaser-image
+      max-width: $imgw*2
+      max-height: $imgh*2
+@media only screen and (min-width: 1025px)
+  .article
+    .markdown
+      &__paragraph
+        font-size: $default-font-size
+    &__publish-time
+      float: right
+      line-height: 25px
+      font-size: 13px
+      padding: 15px 0
+    &__headline
+      float: right
+      z-index: 7
+      width: 990px - $imgw*3 -$std+2px
+  .breadcrumbs--article
+    float: left
+  .related
+    z-index: 7
+    max-width: $imgw*3+2px
+    width: 100%
+    .article__teaser-image
+      max-width: $imgw*3
+      max-height: $imgh*3

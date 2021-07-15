@@ -1,0 +1,86 @@
+@import "../variables.sass"
+
+#about, #o-nas
+  font-size: 16px
+  line-height: 25px
+  
+  .about__quote
+    font-size: 0.75em
+    text-align: left
+    border-left: $std/6 solid $black
+    padding-left: $std/2
+    margin-bottom: $std/2
+  .about__paragraph
+    text-align: justify
+    margin-bottom: $std
+  
+  .about__skills
+    padding: $std
+    text-align: center
+    .skillbar
+      width: 100%
+      white-space: nowrap
+      padding: $std/4
+      border-radius: $std !important
+      margin: $std/2 auto auto
+      &__name
+        border-radius: $std
+        background-color: $safety-green
+        padding-left: $std/2
+        text-align: left
+        &--basic
+          animation: expand-basic 1s ease forwards
+        &--advanced
+          animation: expand-advanced 1s ease forwards
+        &--better
+          animation: expand-better 1s ease forwards
+        &--expert
+          animation: expand-expert 1s ease forwards
+    audio
+      width: 100%
+      height: $std*2
+
+@keyframes expand-basic
+  0%
+    width: 0
+    color: white
+  90%
+    color: white
+  100%
+    width: 33%
+    color: $black
+@keyframes expand-advanced
+  0%
+    width: 0
+    color: white
+  90%
+    color: white
+  100%
+    width: 66%
+@keyframes expand-better
+  0%
+    width: 0
+    color: white
+  90%
+    color: white
+  100%
+    width: 90%
+@keyframes expand-expert
+  0%
+    width: 0
+    color: white
+  90%
+    color: white
+  100%
+    width: 100%
+    
+#bot-transfer
+  display: none
+  
+
+
+
+@media only screen and (min-width: 1025px)
+  #about, #o-nas
+    font-size: 20px
+    line-height: 31px

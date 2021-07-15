@@ -1,0 +1,30 @@
+<!--suppress HtmlUnknownTarget -->
+<nav class="breadcrumbs">
+    <a class="breadcrumbs__breadcrumb" href="/{$langCode}">{$langCode|substr:0:2}</a> ›
+    <a class="breadcrumbs__breadcrumb" href="{$_SERVER['REQUEST_URI']}"><h1>About › Martin Toms</h1></a> ›
+</nav>
+
+<blockquote cite="https://www.facebook.com/morgosus/" class="about__quote tac fs fs--75">
+    ❝As long as the choice is present, people will always choose it.❞
+</blockquote>
+
+<p class="about__paragraph">{$localizationData['about-me']}</p>
+
+<section class="about__skills sb sb--nce sp">
+    <h2 class="page-heading about__heading">{$localizationData['skills']['title']}</h2>
+    <div class="skillbar sp sp--quarter tac">
+        <a rel="nofollow" href="https://stackoverflow.com/users/8359316/martin-toms"><img src="https://stackoverflow.com/users/flair/8359316.png" width="208" height="58" alt="Profile for Martin Toms at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="Profile for Martin Toms at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
+    </div>
+    <section class="about__communication tac sp">
+        <h3 class="">{$localizationData['languages']['title']}</h3>
+        <div n:foreach="$localizationData['languages'] as $language" n:if="!$iterator->isFirst()" class="language sp sp--quarter">{$language}
+            <audio class="fw sh sh--double" oncontextmenu="return false;" controls>
+                <source src="/resource/audio/about/about-{strtolower($language)}.m4a" type="audio/mp4" />
+                Your browser does not support our audio.
+            </audio>
+        </div>
+    </section>
+    <div n:foreach="$localizationData['skills'] as $skill" n:if="$skill['name'] ?? false" class="skillbar sb sb--nce fs fs--75">
+        <div class="skillbar__name skillbar__name--{$skill['level']} sp sp--quarter">{$skill['name']}</div>
+    </div>
+</section>

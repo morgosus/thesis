@@ -1,0 +1,110 @@
+<!--suppress HtmlUnknownTarget -->
+<nav class="breadcrumbs breadcrumbs--article">
+    <a class="breadcrumbs__breadcrumb" href="/{$article->id_language}">{$article->id_language|substr:0:2}</a> ›
+    <a class="breadcrumbs__breadcrumb" href="/{$article->id_language}/{$localizationData['archive']}">{$localizationData['archive']}</a> ›
+    {foreach $breadcrumbs as $breadcrumb}
+        <a class="breadcrumbs__breadcrumb" href="{$breadcrumb[0]}">{$breadcrumb[1]}</a> ›
+    {/foreach}
+</nav>
+
+<article class="article" id="article-actual"  itemscope itemtype="https://schema.org/Article">
+    <progress id="article-loading-bar" class="article__loading-bar" value="0"></progress>
+    
+    <time class="article__publish-time" datetime="{$article->creationIso8601}" itemprop="datePublished"><!--{$localizationData['written'] . ': ' . $article->creation}-->{$article->creation}</time>
+    
+    <hr class="article__breadcrumbs-separator">
+    
+    <h1 class="article__headline">{$article->title}</h1>
+    
+    <aside class="related">
+        <img class="article__teaser-image" alt="{$article->name}" src="https://www.toms.click/src/View/image/{$article->src}" />
+        <hr class="related__separator">
+        <details class="related__details" id="metadata-of-article">
+            <summary class="related__summary" onclick="document.getElementById('related-articles-of-article').removeAttribute('open')">Metadata</summary>
+            <div class="related__about" itemprop="about">{$article->digest}</div>
+            <div class="related__reading-time">{$article->readingTime() . '-' . $localizationData['minute-read']}</div>
+            <div class="related__author">{$localizationData['by'] . ' ' . $article->username}</div>
+            <div class="related__word-count">{$article->wordcount . ' ' . $localizationData['word-estimate']}</div>
+            <div class="related__date">
+                <time datetime="{$article->creationIso8601}" itemprop="datePublished">{$localizationData['written'] . ': ' . $article->creation}</time>
+            </div>
+            <div n:if="$article->modified" class="related__date">{$localizationData['modified']}: <time datetime="{$article->modifiedIso8601}" itemprop="dateModified">{$article->modified}</time></div>
+        </details>
+    
+        <details class="related__details" id="related-articles-of-article">
+            <summary class="related__summary" onclick="document.getElementById('metadata-of-article').removeAttribute('open')">Related articles</summary>
+            <figure n:foreach="$related as $r" class="card overlay-parent">
+                <img class="card__image" alt="{$r->name}" src="/src/View/image/{$r->src}" />
+                <a href="/{$_SESSION['localization']->code}/{$localizationData['article']}/{$r->link}" class="overlay pointer"></a>
+                <figcaption class="card__caption">{$r->title}</figcaption>
+            </figure>
+        </details>
+        
+        <audio class="article__audio" n:if="$article->audio" oncontextmenu="return false;" id="audio" controls>
+            <source src="/resource/audio/article/{$article->audio}" type="audio/mp4" />
+            Your browser does not support our audio.
+        </audio>
+    </aside>
+    
+    <div id="content" class="article__content markdown" itemprop="articleBody">
+        {$article->content|noescape}
+    </div>
+    
+    
+    
+    <meta itemprop="image" content="{$article->src}" />
+    <meta itemprop="wordCount" content="{$article->wordcount}">
+    <div class="article__meta" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+        <meta itemprop="name" content="Toms.click">
+        <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+            <meta itemprop="url" content="https://www.toms.click/src/View/image/anubite-preview-60.png">
+        </div>
+    </div>
+    
+    <div class="article__meta" itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <meta itemprop="name" content="{$article->username}">
+    </div>
+    
+    <div class="article__meta" itemprop="mainEntity" itemscope itemtype="https://schema.org/WebSite">
+        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <meta itemprop="name" content="Martin Toms">
+        </div>
+        <meta itemprop="name" content="Toms.click">
+        <meta itemprop="description" content="Osobní web a univerzitní články, které napsal Martin Toms. Důraz je kladen na vysvětlení teorie, ideálně s příklady.">
+        <meta itemprop="url" content="https://www.toms.click/">
+    </div>
+</article>
+<section class="share">
+    <h2 class="accessible-hide">{$localizationData['social-media-title']}</h2>
+    {if $langId === 2}
+        <a class="sb share__link share__link--facebook" target="_blank" id="facebook-share" rel="nofollow" href="https://www.facebook.com/share.php?u=www.toms.click{$_SERVER['REQUEST_URI']}&quote=Podívejte+se+na+tento+článek:"><img class="share__logo" src="https://static.xx.fbcdn.net/rsrc.php/v3/yr/r/zSKZHMh8mXU.png" alt="Logo Facebooku" /><span class="share__text">Sdílet</span></a>
+        <a class="sb share__link share__link--twitter" target="_blank" id="twitter-share" rel="nofollow" href="https://twitter.com/intent/tweet?text=Podívejte%20se%20na%20tento%20článek:&url=https://www.toms.click{$_SERVER['REQUEST_URI']}"><img class="share__logo" src="/src/View/image/foreign/twitter.png" alt="Logo Twitteru" /><span class="share__text">Tweet</span></a>
+        <a class="sb share__link share__link--reddit" target="_blank" id="reddit-share" rel="nofollow" href="http://reddit.com/submit?url=https://www.toms.click{$_SERVER['REQUEST_URI']}&title=Podívejte+se+na+tento+článek:"><img class="share__logo" src="/src/View/image/foreign/reddit.png" alt="Logo redditu" /><span class="share__text">Reddit</span></a>
+        <a class="sb share__link share__link--mail" target="_blank" id="mail-share" rel="nofollow" href="mailto:?subject=Podívejte%20se%20na%20tento%20článek:&body=https://www.toms.click{$_SERVER['REQUEST_URI']}"><img class="share__logo" src="/src/View/image/foreign/mail.png" alt="Logo emailu" /><span class="share__text">Email</span></a>
+    {else}
+        <a class="sb share__link share__link--facebook" target="_blank" id="facebook-share" rel="nofollow" href="https://www.facebook.com/share.php?u=www.toms.click{$_SERVER['REQUEST_URI']}&quote=Check+out+this+article:"><img class="share__logo" src="https://static.xx.fbcdn.net/rsrc.php/v3/yr/r/zSKZHMh8mXU.png" alt="Facebook logo" /><span class="share__text">Share</span></a>
+        <a class="sb share__link share__link--twitter" target="_blank" id="twitter-share" rel="nofollow" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20article:&url=https://www.toms.click{$_SERVER['REQUEST_URI']}"><img class="share__logo" src="/src/View/image/foreign/twitter.png" alt="Twitter logo" /><span class="share__text">Tweet</span></a>
+        <a class="sb share__link share__link--reddit" target="_blank" id="reddit-share" rel="nofollow" href="http://reddit.com/submit?url=https://www.toms.click{$_SERVER['REQUEST_URI']}&title=Check%20out%20this%20article:"><img class="share__logo" src="/src/View/image/foreign/reddit.png" alt="Reddit logo" /><span class="share__text">Reddit</span></a>
+        <a class="sb share__link share__link--mail" target="_blank" id="mail-share" rel="nofollow" href="mailto:?subject=Check%20out%20this%20article:&body=https://www.toms.click{$_SERVER['REQUEST_URI']}"><img class="share__logo" src="/src/View/image/foreign/mail.png" alt="Email logo" /><span class="share__text">Email</span></a>
+    {/if}
+</section>
+<section n:if="$previous || $next" class="article__bottom-links">
+    <h2 class="accessible-hide">{$localizationData['next-or-previous']}</h2>
+        <figure n:if="$previous" class="card card--previous overlay-parent">
+            <div class="card__symbol card__symbol--left">‹</div>
+            <figcaption class="card__caption"><!--{$localizationData['previous']}: -->{$previous['title']}</figcaption>
+            <img class="card__image" alt="preview" src="/src/View/image/{$previous['src']}" />
+            <a class="overlay" rel="prev" href="/{$_SESSION['localization']->code}/{$localizationData['article']}/{$previous['link']}"></a>
+        </figure>
+        <figure n:if="$next" class="card card--next overlay-parent">
+            <div class="card__symbol card__symbol--right">›</div>
+            <figcaption class="card__caption"><!--{$localizationData['next']}:  -->{$next['title']}</figcaption>
+            <img class="card__image" alt="preview" src="/src/View/image/{$next['src']}" />
+            <a class="overlay" rel="next" href="/{$_SESSION['localization']->code}/{$localizationData['article']}/{$next['link']}"></a>
+        </figure>
+</section>
+
+<link rel="stylesheet" href="/src/Javascript/auxiliary/highlight/idea.css">
+<script src="/src/Javascript/auxiliary/highlight/highlight.min.js"></script>
+<script src="/src/Javascript/auxiliary/article/master.js?v={$fv}"></script>
+

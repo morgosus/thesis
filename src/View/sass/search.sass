@@ -1,0 +1,59 @@
+@import "variables.sass"
+
+//Container around everything
+#search-containter
+  display: flex
+  flex-direction: column
+  //displays 'loading', sibling of found, switched to display none after search - mostly a low-end connection thing
+  #search-wait
+    display: none
+    color: transparent
+    #search-loading-bar
+      position: fixed
+      left: 0
+      right: 0
+      width: 1px
+      height: 5px
+      background-color: indigo
+      -webkit-transition: width 250ms ease
+      -moz-transition: width 250ms ease
+      -o-transition: width 250ms ease
+      transition: width 250ms ease
+  #found
+    #search-heading
+      text-align: left
+      padding: $std/2
+    .card-found
+      padding: $std/2
+      margin-bottom: $std/2
+      text-align: center
+      &:last-of-type
+        margin-bottom: 0
+      .title
+        font-weight: bold
+        margin-bottom: $std/2
+      .content
+        font-size: 0.75em
+      img
+        width: 192px
+        height: 96px
+
+@media only screen and (min-width: 1025px)
+  #search-containter
+    #found
+      display: flex
+      flex-direction: row
+      flex-wrap: wrap
+      #search-heading
+        width: 100%
+        margin-bottom: $std
+      .card-found
+        flex-basis: 40%
+        flex-grow: 1
+        margin-bottom: $std
+        padding: $std
+        text-align: center
+        &:nth-of-type(2n+1) //1st
+          margin-right: $std
+        &:last-of-type
+          margin-right: auto

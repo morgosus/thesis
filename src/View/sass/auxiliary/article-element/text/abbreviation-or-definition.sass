@@ -1,0 +1,32 @@
+@import "../../../variables.sass"
+
+.fleur, .abbreviation
+  color: gold
+  cursor: pointer
+  padding: $std/4
+  .tooltip
+    display: none
+    color: darkgoldenrod
+    .middle-fleur
+      color: gold
+  &:hover
+    dfn
+      color: darkgoldenrod
+    abbr
+      color: $black
+  &.active
+    cursor: text
+    .tooltip
+      display: inline
+    dfn
+      color: darkgoldenrod
+  dfn
+    font-style: normal !important
+    color: $black
+    abbr
+      text-decoration: underline
+      text-decoration-color: $black
+      &:hover
+        color: $black
+.abbreviation
+  cursor: help

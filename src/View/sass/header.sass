@@ -1,0 +1,319 @@
+@import "variables.sass"
+
+.header
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4), 0 3px 10px 0 rgba(0, 0, 0, .38)
+.footer
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2), 0 3px 10px 0 rgba(0, 0, 0, .19)
+.header
+  background-color: $black
+  color: white
+  .header__top-wrapper
+    .header__upper-part
+      display: flex
+      flex-direction: row
+      background-color: $primary-color
+      padding: $std
+      align-items: center
+      justify-content: space-around
+      .logo
+        color: $black
+        display: block
+        text-align: center
+        padding: $std/4
+        a
+        &:hover
+          a
+        &.active
+          a
+      .search
+        display: flex
+        flex-direction: row
+        width: 50%
+        margin-left: auto
+        .search__searchbar
+          background-color: white
+          padding: $std/4
+          width: 80%
+          border: $black 1px solid
+          margin: 0
+          border-radius: $std/3 0 0 $std/3
+          border-right-color: $secondary-color
+          &:focus
+            outline: none
+        .search__button
+          background: $primary-color url(/src/View/image/icon/magnifier.svg) no-repeat center
+          background-size: 75%
+          width: 20%
+          padding: $std/4
+          border: 1px solid black
+          border-radius: 0 $std/3 $std/3 0
+          border-left: 0
+          cursor: pointer
+          background-size: contain
+          &:enabled
+            background-color: white
+        #settings-button, #settings-button-fake
+          transition: all 0.5s ease
+          margin-left: $std/2
+          font-size: 1.25em
+          color: $black
+          background-color: $primary-color
+          border: none
+          width: 20%
+          cursor: pointer
+  .navigation
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
+    //padding-top: $standard-distance
+    .navigation__category
+      background-color: $primary-color
+      color: $black
+      border-radius: $std/3
+      text-align: center
+      align-self: center
+      &--middle-one
+        display: none
+      &-link
+        display: inline-block
+        width: 100%
+        height: 100%
+        padding: $std/2
+      &:hover, &.active
+        a
+      &.active
+        &.navigation__category--middle-one
+        a
+      a
+        &:focus
+      li:first-of-type a
+      li:last-of-type a
+      &:hover .dropdown, a:focus .dropdown
+      .dropdown
+        li
+        a
+          &:hover
+      &:hover ul
+    //noinspection CssOptimizeSimilarProperties
+    &--collapsed
+      #home-icon
+        height: 31px
+        width: 31px
+        background-image: url("/resource/ui/home.svg")
+        background-size: 60%
+        background-repeat: no-repeat
+        background-position: center
+        margin-left: $std
+        color: transparent
+      #archive-button
+        width: 50%
+      #about-button, #other-button, #home-button
+        display: none
+    &--expanded
+      flex-direction: column
+      #home-icon
+        display: none
+      .navigation__category:nth-of-type(2)
+        margin-top: $std
+      #about-button, #other-button, #home-button, #archive-button
+        display: block
+        width: 50%
+        margin-bottom: $std/2
+  .languages
+    display: flex
+    flex-direction: column
+    justify-content: space-evenly
+    padding: $std/2
+    background-color: $black
+    .languages__flag
+      filter: invert(1)
+      color: transparent
+      background-color: $primary-color
+      border-radius: $std/3
+      padding: $std/4
+      border: none
+      cursor: pointer
+      height: 22.5px
+      width: 40.86px
+      &:active
+        filter: invert(0)
+      //noinspection CssOptimizeSimilarProperties
+      &--en-us
+        background: url(/src/View/image/icon/american-flag.png?v=2.0)
+        background-repeat: no-repeat
+        background-size: 60%
+        background-position: center
+        margin-bottom: $std/2
+      //noinspection CssOptimizeSimilarProperties
+      &--cs-cz
+        background: url(/src/View/image/icon/czech-flag.png?v=2.0)
+        background-repeat: no-repeat
+        background-size: 60%
+        background-position: center
+    &--row
+      flex-direction: row
+      justify-content: space-evenly
+      width: 100%
+      background-color: $primary-color
+      .languages__flag
+        filter: none
+.footer
+  background-color: $black
+  color: white
+  &__copyright
+    text-align: center
+    width: 100%
+    background-color: $primary-color
+    padding: $std
+    color: $black
+  .footer__navigation
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding-top: $std
+    .navigation__category, .footer__button
+      background-color: $primary-color
+      color: $black
+      border-radius: $std/3
+      min-width: 50%
+      text-align: center
+      margin: auto auto $std auto
+      height: $default-font-size+$std/4
+      &--middle-one
+        display: none
+      &-link
+        display: inline-block
+        width: 100%
+        height: 100%
+        padding: $std/4
+        
+@media only screen and (max-width: 1024px)
+  #other-button.active
+    display: none !important
+        
+@media only screen and (min-width: 1025px)
+  .header
+    text-align: center
+    .navigation
+      display: inline-flex
+      flex-direction: row
+      width: 100%
+      justify-content: flex-start
+      max-width: 1024px
+      margin: auto
+      height: $default-font-size+$std*2.75-1
+  
+      .navigation__category
+        min-width: 150px
+        flex-basis: 10%
+        margin: $std $std $std 0
+        transition: all 0.25s ease
+        height: $std/2+$default-font-size+2
+        &-link
+        &:hover
+          padding-top: $std/2
+        &:active
+          color: $secondary-color
+          padding-top: $std/2
+  
+        &:hover, &.active
+          height: $default-font-size+$std*0.75-1+30
+          margin: $std*2 $std 0 0
+          border-radius: $std/3 $std/3 0 0
+          box-shadow: inset 0 69px 30px -72px rgba(0,0,0,1)
+        &.active
+          padding-top: $std/2
+          transition: none
+      &--collapsed
+        #home-button
+          display: none
+        #home-icon
+          min-width: 31px
+          flex-basis: 31px
+          
+          &:hover, &.active
+            height: $default-font-size+$std*0.75-1+30
+            background-position-y: 12.5px
+        #archive-button, #about-button
+          display: inline-block !important
+      &--expanded
+        //flex-direction: column
+        #home-icon
+          margin-left: $std
+          display: inline-block
+          flex-basis: 31px
+          width: 31px
+          min-width: 31px
+          .navigation__category-link
+            max-width: 31px
+        .navigation__category:nth-of-type(2)
+          margin-top: $std
+        #about-button, #archive-button
+          display: inline
+        #other-button, #home-button
+          display: none
+        
+    .languages
+      flex-direction: row
+      margin-left: auto
+      margin-right: 0
+      &--row
+        flex-direction: row
+        justify-content: space-evenly
+        width: auto
+        background-color: $black
+        .languages__flag
+          filter: invert(1)
+      .languages__flag, #settings-button
+        margin: 0
+        &--en-us
+          margin-right: $std
+    .header__top-wrapper
+      background-color: $primary-color
+      width: 100%
+      .header__upper-part
+        width: 1024px
+        margin: auto
+        justify-content: space-between
+        .search
+          max-width: 250px
+          width: 20%
+          margin: 0
+          .search__searchbar::placeholder
+            color: $secondary-color
+          .search__button
+            background-size: 45%
+          #settings-button, #settings-button-fake
+            background-size: 75%
+            color: transparent
+            border: none
+            transition: all 1s ease
+            &:hover
+              transform: rotate(180deg)
+            &:active
+              transform: rotate(45deg)
+          #settings-button
+            background: url(/src/View/image/icon/settings.svg) no-repeat center
+          #settings-button-fake
+            color: $black
+  
+  .main
+    margin: auto
+    width: 1024px
+          
+  .footer
+    text-align: center
+    .footer__navigation
+      display: inline-flex
+      flex-direction: row
+      justify-content: space-evenly
+      width: 1024px !important
+      .footer__button
+        transition: height 0.25s ease, padding-top 0.25s ease, margin 0.25s ease
+        min-width: 15%
+    
+    .footer__navigation
+      width: 100%
+      
+  

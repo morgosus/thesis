@@ -1,0 +1,53 @@
+@import "../variables.sass"
+
+#notice, #oznameni
+  display: flex
+  flex-direction: column
+  justify-content: space-evenly
+  .notice-error, .notice-success
+    font-weight: bold
+    text-align: center
+    color: $safety-green
+    cursor: default
+    width: 50%
+    margin: 0 auto
+  .notice-error
+    color: $danger-red
+
+  .notice__arrow
+    animation: noticeArrowFly 1s ease forwards
+    font-size: 3em
+    color: $safety-green
+    text-align: center
+    cursor: default
+    margin: 0 auto
+  .notice__home
+    background: url("/resource/ui/home.svg") no-repeat center
+    width: 32px
+    height: 32px
+    font-size: 0
+    transition: all 0.25s ease
+    filter: invert(48%) sepia(14%) saturate(3193%) hue-rotate(40deg) brightness(99%) contrast(73%)
+    margin: 16px auto 0
+    &:hover
+      margin-top: 0
+      filter: $safety-green-filter
+      width: 48px
+      height: 48px
+
+@keyframes noticeArrowFly
+  0%
+    top: -15%
+  100%
+    top: 15%
+    font-size: 1.5em
+    color: #6c9023
+    
+@media only screen and (min-width: 1025px)
+  #notice
+    font-size: 20px
+    line-height: 31px
+    .notice-error, .notice-paragraph
+      margin: 0 auto
+      max-width: 25%
+

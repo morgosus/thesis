@@ -1,0 +1,83 @@
+@import "variables.sass"
+
+@import "auxiliary/breadcrumbs"
+@import "auxiliary/back-to-top"
+@import "auxiliary/overlay"
+@import "auxiliary/sb"
+
+@import "auxiliary/article-element/text/code"
+@import "auxiliary/article-element/text/table"
+@import "auxiliary/article-element/text/ruby"
+@import "auxiliary/article-element/text/fraction"
+@import "auxiliary/article-element/text/sum"
+@import "auxiliary/article-element/text/text-75"
+@import "auxiliary/article-element/text/abbreviation-or-definition"
+
+@import "auxiliary/article-element/sticky-header"
+
+
+*
+  box-sizing: border-box
+  position: relative
+
+html, body
+  height: 100%
+  font-family: Raleway, sans-serif
+  
+body
+  display: flex
+  flex-direction: column
+  overflow-y: scroll
+  background-color: $primary-color
+a
+  color: inherit
+  text-decoration: none
+
+img
+  max-width: 100%
+  
+input:focus, textarea:focus, button:focus
+  outline: none
+
+.main
+  flex-grow: 1
+  padding: 0 $std/2 $std/2 $std/2
+.page-heading
+  font-weight: bold
+  margin: auto auto $std/2 auto
+  text-align: center
+  font-size: $default-font-size
+  font-family: Raleway, Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif
+  
+#notice-paragraph
+  display: none
+@import "header.sass"
+
+@import "footer.sass"
+
+@import "_page/homepage"
+
+@import "_page/article"
+
+@import "_page/archive"
+
+@import "_page/about"
+
+@import "search.sass"
+
+@import "_page/notice"
+
+@import "_page/legal"
+
+@import "menu.sass"
+
+@import "responsive.sass"
+
+@import "print.sass"
+
+@import "../module/admin/admin.sass"
+
+
+@media only screen and (min-width: 1025px)
+  .main
+    padding: 0 $std $std $std

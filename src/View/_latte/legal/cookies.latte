@@ -1,0 +1,50 @@
+<!--suppress HtmlUnknownTarget -->
+<nav class="breadcrumbs">
+    <a class="breadcrumbs__breadcrumb" href="/{$langCode}">{$langCode|substr:0:2}</a> ›
+    {if $langId === 2}
+    <a class="breadcrumbs__breadcrumb" href="{$_SERVER['REQUEST_URI']}"><h1>Legal › Cookie zásady</h1></a> ›
+    {else}
+    <a class="breadcrumbs__breadcrumb" href="{$_SERVER['REQUEST_URI']}"><h1>Legal › Cookie Policy</h1></a> ›
+    {/if}
+</nav>
+<div>
+    {if $langId === 2}
+    <p>Upozorňujeme, že některé funkcionality (i nevyžadující cookies) provazujeme s cookie-souhlasem. Berte to jako
+       kompenzaci kliknutí na cookie banner, který na nás uvrhla Evropská Unie.</p>
+    
+    <p>Pokud přijmete naše cookies, automaticky vám bude vydán cookie consent právě v cookie souboru. To znamená, že po
+       dalších šest měsíců (nebo dokud nevymažete toto cookie) tento banner neuvidíte. Cookies můžete mazat nebo úplně
+       vypnout ve vašem prohlížeči. Pokud jste paranoidní stonožka, která se bojí uložení textu typu "enable" do vašeho
+       počítače, konzultujte dokumentaci svého prohlížeče. Bylo by prakticky nemožné popsat tento postup pro všechny
+       prohlížeče a nekorektní upřednostňovat skupinu uživatelů na jednom prohlížeči vysvětlením jen jednoho
+       postupu.</p>
+    
+    <p>Dále se vám odemkne menu. Obsahuje funkce typu vypnutí animací, některé z funkcí nastaví další cookie, ale to už
+       je jedno - jelikož tyto funkce se vám nezobrazí pokud nám to nepovolíte (nebo nezačnete obcházet naše opatření,
+       ale pak už to není naše starost, protože byste se aktivně snažili získat od nás cookie).</p>
+    
+    <p>Cookie je malý soubor, v podstatě lokální proměnná, ukládá se do přístroje uživatele. Zatím je moc nepoužíváme,
+       primárně na Google Analytics (dále jen "GA"). Nesbíráme v GA data, která by mohla být použita k identifikaci
+       jednotlivců.
+       Data v GA ukládáme na 38 měsíců.</p>
+    
+    <p>Pokud se vám cookie banner nelíbí, stěžujte si u EU.</p>
+    {else}
+    <p>Note that we actually bind some non-cookie related functionalities to the cookie consent. Consider it a small
+       compensation for the cookie banner that the European Union imposes upon us.</p>
+    <p>If you accept our cookies, you'll gain the great benefit of having a consent cookie - which will mean
+       that for the next six months, you will not have to see this banner. You can always delete your cookies,
+       or
+       disable them in your browser, however, I believe that would be a stupid decision, most web-based apps
+       would stop working without any cookies. It's not really possible to detail the process of doing that for
+       every browser, so if you wish to delete or disable your cookies, consult the documentation of your
+       preferred browser.</p>
+    <p>You'll also unlock the menu. It contains all sorts of fancy stuff, like the ability to disable animations.</p>
+    <p>Cookies are small files, pretty much local variables, stored in the user's machine. We don't really use
+       them much yet, mainly just for quality of life enhancements and Google Analytics ('GA'). We do not collect data
+       that
+       can be used to identify individuals in GA. Data in GA is stored for 38 months.</p>
+    <p>Do note that this banner will be back after six months or if you delete your cookies, compliments of our
+       overlords over @EU.</p>
+    {/if}
+</div>

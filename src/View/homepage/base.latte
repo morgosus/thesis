@@ -1,0 +1,59 @@
+<!--suppress HtmlUnknownTarget -->
+<nav class="breadcrumbs">
+    <a class="breadcrumbs__breadcrumb" href="{$_SERVER['REQUEST_URI']}">{$langCode|substr:0:2}</a> ›
+    <a n:if="($langId === 1)" class="breadcrumbs__breadcrumb" href="{$_SERVER['REQUEST_URI']}">Homepage</a><a n:if="($langId === 2)" class="breadcrumbs__breadcrumb" href="{$_SERVER['REQUEST_URI']}">Domovská stránka</a> ›
+</nav>
+
+<div class="homepage__wrapper wrapper-row">
+    <section class="homepage__left wrapper-row">
+        <h2 class="homepage__title  homepage__title--left accessible-hide">{$localizationData['newest']}</h2>
+            <article n:foreach="$newest as $article" itemscope itemtype="https://schema.org/Article" class="sb card">
+                <div class="meta" itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="Toms.click"><div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject"><meta itemprop="url" content="https://www.toms.click/src/View/image/anubite-preview-60.png"></div></div>
+                <div class="meta" itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="Martin Toms"></div>
+    
+                <img class="card__image ma" src="/src/View/image/{$article->src}" alt="{$article->name}" />
+                <div n:if="$article->modified" style="display: none"  class="creation-date default-cursor"><time datetime="{$article->modifiedIso8601}" itemprop="dateModified">{$article->modified}</time></div>
+                <h3 class="card__title" itemprop="name headline">{$article->title}</h3>
+                
+                <p class="card__digest taj" itemprop="about">{$article->digest}</p>
+                <a itemprop="url mainEntityOfPage" class="overlay" href="/{$article->id_language}/{$localizationData['article']}/{$article->link}"></a>
+                <hr class="card__horizontal-rule">
+                <section class="card__time-meta wrapper-row">
+                    <h3 class="accessible-hide">$localizationData['article-metadata']</h3>
+                    <span class="card__timestamp" style="display: none"><time class="card__time" datetime="{$article->creationIso8601}" itemprop="datePublished">{$article->creation}</time></span>
+                    <span class="card__timestamp"><time class="card__time" datetime="{$article->creationIso8601}">{$article->difference}</time></span>
+                    <span n:if="$article->audio" class="card__timestamp">♪</span>
+                    <span class="card__timestamp">{$article->readingTime()} min</span>
+                </section>
+            </article>
+    </section>
+    <div class="homepage__right">
+        <section class="homepage__pannel mn homepage__pannel--featured">
+            <h2 class="homepage__title homepage__title--right accessible-hide">{$localizationData['featured']}</h2>
+            <article n:foreach="$featured as $article" itemscope itemtype="https://schema.org/Article" class="sb card">
+                <div class="meta" itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="Toms.click"><div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject"><meta itemprop="url" content="https://www.toms.click/src/View/image/anubite-preview-60.png"></div></div>
+                <div class="meta" itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="Martin Toms"></div>
+                
+                <div n:if="$article->modified" style="display: none"  class="creation-date default-cursor"><time class="card__time" datetime="{$article->modifiedIso8601}" itemprop="dateModified">{$article->modified}</time></div>
+                <h3 class="card__title" itemprop="name headline">{$article->title}:</h3>
+                <p class="card__digest taj" itemprop="about">{$article->digest}</p>
+                <a itemprop="url mainEntityOfPage" class="overlay" href="/{$article->id_language}/{$localizationData['article']}/{$article->link}"></a>
+                <hr class="card__featured-separator">
+            </article>
+        </section>
+        <section id="social-media-sharing" class="homepage__pannel mn homepage__pannel--call-to-action">
+            <h2 class="homepage__title homepage__title--right accessible-hide">Call to action</h2>
+            {if ($langId === 2)}
+            <a class="share__link sm sb" target="_blank" id="facebook-share" rel="nofollow" href="https://www.facebook.com/share.php?u=www.toms.click&quote="><img class="share__logo" src="https://static.xx.fbcdn.net/rsrc.php/v3/yr/r/zSKZHMh8mXU.png" alt="Logo Facebooku" /><span class="share__text">Sdílet</span></a>
+            <a class="share__link sm sb" target="_blank" id="twitter-share" rel="nofollow" href="https://twitter.com/intent/tweet?text=&url=https://www.toms.click"><img class="share__logo" src="/src/View/image/foreign/twitter.png" alt="Logo Twitteru" /><span class="share__text">Tweet</span></a>
+            <a class="share__link sm sb" target="_blank" id="reddit-share" rel="nofollow" href="http://reddit.com/submit?url=https://www.toms.click&title="><img class="share__logo" src="/src/View/image/foreign/reddit.png" alt="Logo redditu" /><span class="share__text">Reddit</span></a>
+            <a class="share__link sm sb" target="_blank" id="mail-share" rel="nofollow" href="mailto:?subject=&body=https://www.toms.click"><img class="share__logo" src="/src/View/image/foreign/mail.png" alt="Logo emailu" /><span class="share__text">Email</span></a>
+            {else}
+            <a class="share__link sm sb" target="_blank" id="facebook-share" rel="nofollow" href="https://www.facebook.com/share.php?u=www.toms.click&quote="><img class="share__logo" src="https://static.xx.fbcdn.net/rsrc.php/v3/yr/r/zSKZHMh8mXU.png" alt="Facebook logo" /><span class="share__text">Share</span></a>
+            <a class="share__link sm sb" target="_blank" id="twitter-share" rel="nofollow" href="https://twitter.com/intent/tweet?text=&url=https://www.toms.click"><img class="share__logo" src="/src/View/image/foreign/twitter.png" alt="Twitter logo" /><span class="share__text">Tweet</span></a>
+            <a class="share__link sm sb" target="_blank" id="reddit-share" rel="nofollow" href="http://reddit.com/submit?url=https://www.toms.click&title="><img class="share__logo" src="/src/View/image/foreign/reddit.png" alt="Reddit logo" /><span class="share__text">Reddit</span></a>
+            <a class="share__link sm sb" target="_blank" id="mail-share" rel="nofollow" href="mailto:?subject=:&body=https://www.toms.click"><img class="share__logo" src="/src/View/image/foreign/mail.png" alt="Email logo" /><span class="share__text">Email</span></a>
+            {/if}
+        </section>
+    </div>
+</div>

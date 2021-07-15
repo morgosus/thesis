@@ -1,0 +1,101 @@
+@import "../variables.sass"
+
+#archive, #archiv
+  text-align: center
+  .topic
+    vertical-align: middle
+    display: inline-flex
+    flex-direction: column
+    justify-content: space-evenly
+    background-color: $primary-color
+    min-height: 110px
+    padding: $std/2
+    margin-bottom: $std
+    width: 100%
+    border-radius: $std/3
+    box-shadow: $box-shadow
+    &:last-of-type
+      margin-bottom: 0
+    &:hover
+      .second-part
+        border-color: darkgray !important
+        *
+          color: darkgray !important
+    &__top
+      display: flex
+      flex-direction: row
+      justify-content: space-evenly
+      flex-grow: 1
+      .topic__name
+        flex-grow: 1
+        align-self: center
+      .topic__preview
+        border-left: 1px solid $header-background-color-darker
+        z-index: 10
+        align-self: center
+        cursor: pointer
+        .topic__image
+          width: 96px
+          height: 46px
+          vertical-align: middle
+        &:hover
+          background-color: $header-background-color-darker
+    &__bottom
+      display: flex
+      flex-direction: row
+      justify-content: space-evenly
+      border-top: 1px solid $header-background-color-darker
+      color: $header-background-color-darker
+      margin-top: $std/2
+      padding: $std/2
+      .topic__subsection-count, .topic__article-count
+        flex-grow: 1
+        font-size: 0.75em
+        align-self: center
+        font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif
+  
+  .card
+    display: inline-block
+    width: 100%
+    vertical-align: top
+    background-color: $primary-color
+    box-shadow: $box-shadow
+    margin-top: $std
+    padding: $std/2
+    .card__image
+      width: 192px
+      height: 96px
+      margin-bottom: $std/2
+    .card__title
+      font-weight: normal
+      line-height: 110%
+      font-family: Spectral, Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif
+      font-size: 1.1em
+      margin-bottom: $std/2
+    .card__digest
+      font-size: 0.75em
+  
+@media only screen and (min-width: 1025px)
+  #archive, #archiv
+    .archive__section
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      flex-wrap: wrap
+      width: 100%
+    .topic
+      flex-grow: 1
+      flex-basis: 30%
+      vertical-align: middle
+      &:last-of-type
+        margin-bottom: $std
+      &:nth-of-type(5n+1) //1st
+        margin-right: $std
+      &:nth-of-type(5n+3) //3rd
+        margin-left: $std
+    .card
+      padding: $std
+      margin: auto auto $std
+      flex-basis: 60%
+      &:last-of-type
+        margin: auto

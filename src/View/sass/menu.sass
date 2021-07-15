@@ -1,0 +1,138 @@
+@import "variables.sass"
+
+.banner
+  position: fixed
+  bottom: $std/2
+  right: $std/2
+  left: $std/2
+  background-color: white
+  padding: $std
+  box-shadow: $box-shadow
+  border-radius: $std/3
+  z-index: 10
+  &__title
+    margin-bottom: $std
+  &__text
+    text-align: justify
+    margin-bottom: $std/2
+    font-size: 0.75em
+  &__buttons
+    display: flex
+    flex-direction: row
+    justify-content: space-evenly
+  &__button
+    cursor: pointer
+    display: inline-block
+    margin: $std/2 auto auto
+    background-color: $secondary-color
+    border-radius: $std/3
+    border: none
+    padding: $std/2
+    border-top: double $primary-color 3px
+    border-bottom: double $primary-color 3px
+    &:hover
+      background-color: #adadad
+    &:nth-of-type(2)
+      border-radius: 0
+    &:nth-of-type(3)
+      border-radius: 0
+    &--red
+      border-top-right-radius: 0
+      border-bottom-right-radius: 0
+      background-color: #ff4500
+      border: 3px double $primary-color
+      border-right: none
+      &:hover
+        background-color: #cc3700
+    &--green
+      border-top-left-radius: 0
+      border-bottom-left-radius: 0
+      background-color: #00ff7f
+      border: 3px double $primary-color
+      border-left: none
+      &:hover
+        background-color: #00ff00
+      
+
+.banner .search__button, .settings .settings__button, .settings-basic .settings__button
+
+.banner .settings__button:hover, #menu .settings__button:hover
+
+#enable-all-cookies
+
+#enable-only-consent-cookie
+
+#the-dickhead-cookie-option
+
+/*SETTINGS*
+#settings-button, #settings-button-real, #settings-button-fake
+
+#settings, #settings-basic
+
+#settings button, #settings-basic button
+
+/*MENU BUTTONS*
+#contact-menu-button
+
+#make-a-deal-button
+
+#settings #disable-animations-button, #settings-basic #disable-animations-button
+
+#settings #the-dickhead-cookie-option, #settings-basic #the-dickhead-cookie-option
+
+#settings #conceal-menu-button, #settings-basic #conceal-menu-button
+
+.hidden
+  display: none
+
+#speech-bubble
+
+
+.settings, .settings-basic
+  display: none
+  flex-direction: column
+  width: 100%
+  background-color: $black
+  align-items: center
+  padding-top: $std/2
+  text-align: center
+  z-index: 9
+  .settings__button
+    margin-bottom: $std/2
+    width: 50%
+    background-color: $primary-color
+    border: none
+    padding: $std/2
+    border-radius: $std/3
+    font-size: 16px
+    font-family: Raleway, sans-serif
+    &--red
+      background-color: $danger-red
+    &--green
+      background-color: $safety-green
+    &:last-of-type
+      margin-bottom: $std
+
+@media only screen and (min-width: 1025px)
+  .banner
+    width: 300px
+    left: initial
+    .banner__button
+      max-width: 230px
+      width: 100%
+  .settings, .settings-basic
+    background-color: $primary-color
+    position: fixed
+    box-shadow: $box-shadow
+    right: $std
+    bottom: $std
+    width: $std*16
+    border-radius: $std/3
+    padding: 0 $std $std $std
+    .settings__button
+      width: 100%
+      box-shadow: $box-shadow
+      margin-top: $std
+      cursor: pointer
+      &:last-of-type
+        margin-bottom: 0

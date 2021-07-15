@@ -1,0 +1,65 @@
+@import "../variables.sass"
+
+.sp //standard-padding
+  padding: $std
+  &--half
+    padding: $std/2
+
+.ma //margin-auto
+  margin: auto
+
+.mn //margine-none
+  margin: 0
+  
+.sm //standard-margin
+  margin: $std
+  &--half
+    margin: $std/2
+  &--quarter
+    margin: $std/4
+
+.i //image
+  max-width: $image-width
+  max-height: $image-height
+  &--half
+    width: $image-width/2
+    height: $image-height/2
+
+.dn //display: none
+  display: none
+
+.fs
+  font-size: $std
+  &--75
+    font-size: 0.75em
+    
+.tac
+  text-align: center
+.tal
+  text-align: left
+.tar
+  text-align: right
+.taj
+  text-align: justify
+  
+.on
+  overflow: hidden
+  
+.fw
+  width: 100%
+
+.sh
+  height: $std
+  &--double
+    height: $std*2
+  
+.wrapper-row, .wrapper-column
+  display: flex
+  justify-content: space-evenly
+.wrapper-row
+  flex-direction: row
+.wrapper-column
+  flex-direction: column
+.grow
+  border: none
+  flex-grow: 1

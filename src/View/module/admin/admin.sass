@@ -1,0 +1,91 @@
+@import "../../../View/sass/variables.sass"
+
+#admin
+  /*Comment approval*/
+  h2
+    text-align: left
+  .pending-comment
+    display: flex
+    flex-direction: row
+    justify-content: space-evenly
+    flex-wrap: nowrap
+    cursor: pointer
+    margin-bottom: $std
+    padding: $std
+    align-items: center
+    &.duplicate
+      color: red
+    h3
+      font-size: 1em
+      display: block
+    .content
+      flex-grow: 1
+      width: 75%
+      max-width: 768px
+      font-size: 1em
+      text-align: justify
+    *::selection
+      user-select: none
+      -moz-user-select: none
+      -ms-user-select: none
+      -webkit-touch-callout: none
+      -webkit-user-select: none
+      -khtml-user-select: none
+    input
+      cursor: pointer
+  .buttons
+    display: flex
+    flex-direction: row
+    justify-content: space-evenly
+    margin: 2*$std auto
+    .approve, .reject
+      cursor: pointer
+      border-radius: 10px
+      padding: $std/2 $std
+      wrap-option: none
+      white-space: nowrap
+      font-size: 1em
+      color: #FFFFFF
+    .approve
+      background-color: $safety-green
+      border-color: #7BA428
+      color: #3D5214
+    .reject
+      background-color: $danger-red
+      border-color: #A4283C
+      color: #52141E
+
+  /*Editor*/
+  form.admin
+    textarea
+      resize: none
+    label
+      display: block
+    .link, .keywords
+      width: 100%
+      max-width: 1024px
+    .title
+      font-size: 2em
+      width: 100%
+      max-width: 620px
+      line-height: 100%
+      text-align: center
+      padding: $std/2
+      display: block
+    .digest
+      display: block
+      width: 100%
+      max-width: 204px
+      font-size: $digest-font-size
+      padding: 0 0 7.5px
+      line-height: 100%
+      text-align: center
+      overflow: hidden
+    .content
+      display: block
+      width: 100%
+      max-width: 1024px
+      line-height: 150%
+      text-align: justify
+      padding: $std/2
+      font-size: $default-font-size
