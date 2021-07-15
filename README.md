@@ -47,10 +47,10 @@ The second step consists of loading the sql database script onto your database s
 **Text této práce je k dispozici pouze v češtině.**  
 **This thesis is only available in Czech.**  
 
-Text is located within the /docs/zaverecna_prace.pdf file.
+Text is located within the /docs/zaverecna_prace.pdf file and at the thesis subdomain of my website: http://thesis.toms.click/.
 
 
-Text se nachází v souboru /docs/zaverecna_prace.pdf.
+Text se nachází v souboru /docs/zaverecna_prace.pdf a na adrese http://thesis.toms.click/.
 
 ### Abstrakt / Abstract
 
