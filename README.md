@@ -1,19 +1,16 @@
-# BAKALÁŘSKÁ PRÁCE / BACHELOR THESIS 2021
+# Návrh a vývoj redakčního systému / Design and Development of a Content Management System
+
 
 **Czech University of Life Scences Prague**  
-Česká zemědělská universita v Praze  
-
 
 **Faculty of Economy and Management**  
-Provozně ekonomická fakulta  
-
+**Department of Information Engineering**
 
 **System Engineering and Informatics, Bachelor of Informatics**  
-Systémové inženýrství a informatika, Informatika
 
 **Bc. Martin Toms, 2021**
 
-## Zkouška
+## Zkouška / Exam
 
 **Final state exam:** 2020/21 Summer Semester - FEM on 19/05/2021 at 08:00
 - Quantitative Methods
@@ -47,8 +44,9 @@ The second step consists of loading the sql database script onto your database s
 
 ## Text práce / Thesis Text
 
+**Text této práce je k dispozici pouze v češtině.**  
+**This thesis is only available in Czech.**  
 
-**This thesis is only available in Czech as it was made during my study programme in Czech Republic.**  
 Text is located within the /docs/zaverecna_prace.pdf file.
 
 
@@ -77,3 +75,7 @@ system
 
 
 PHP, HTML5, CSS, webová aplikace, CMS, UI design, redakční systém
+
+
+
+![thesis](https://user-images.githubusercontent.com/22296739/125852438-538664e9-0d12-4b95-8a76-376ac23308c0.png)
